@@ -98,4 +98,6 @@ public class AppWebConfiguration {
 		resolver.setContentNegotiationManager(manager);
 		return resolver;
 	}
+	
+	
 }
