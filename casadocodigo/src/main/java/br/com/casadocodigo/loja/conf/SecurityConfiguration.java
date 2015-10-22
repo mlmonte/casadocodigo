@@ -28,13 +28,16 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 		.anyRequest().authenticated()
 		.and()
 		.formLogin().loginPage("/login")
-		.defaultSuccessUrl("/product")
+		.defaultSuccessUrl("/products")
 		.permitAll()
 		.and()
 		.logout()
 		.logoutRequestMatcher(new AntPathRequestMatcher("/logut"))
 		.logoutSuccessUrl("/login")
-		.permitAll();
+		.permitAll()
+		.and()
+		.exceptionHandling()
+		.accessDeniedPage("/WEB-INF/views/errors/403.jsp");
 	}
 	
 	@Override
