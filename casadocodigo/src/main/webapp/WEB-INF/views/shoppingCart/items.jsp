@@ -98,10 +98,15 @@
 			<tfoot>
 				<tr>
 					<td colspan="2">
+<!-- 					
 						<c:url value="/shopping/checkout" var="checkoutUrl"/>
 						<form:form action="${checkoutUrl}" method="post">
 							<input type="submit" class="checkout" name="checkout" value="Finalizar compra" id="checkout" />
 						</form:form>
+ -->					
+						<form:form servletRelativeAction="/shopping/checkout" method="post" cssClass="container">
+							<input type="submit" class="checkout" name="checkout" value="Finalizar compra" id="checkout" />
+						</form:form>	
 					</td>
 					<td></td>
 					<td class="numeric-cell">${shoppingCart.total}</td>
