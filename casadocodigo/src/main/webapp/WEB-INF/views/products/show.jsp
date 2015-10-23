@@ -1,7 +1,10 @@
+<%@page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+<%@taglib uri="http://www.springframework.org/security/tags" prefix="sec" %>
+<%@taglib tagdir="/WEB-INF/tags" prefix="cdc" %>
 
 <!DOCTYPE html>
 <html class="no-js" lang="pt">
@@ -10,7 +13,9 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 	
-	<title>${product.title}</title>
+	<cdc:page title="${product.title}">
+		<sec:authentication property="principal" var="user" />
+	</cdc:page>
 	
 	<link href="http://cdn.shopify.com/s/files/1/0155/7645/t/177/assets/style.css?10732338795638998506" rel="stylesheet" type="text/css"  media="all"  />
   	<link href="http://cdn.shopify.com/s/files/1/0155/7645/t/177/assets/layout-colors.css?10732338795638998506" rel="stylesheet" type="text/css"  media="all"  />
@@ -31,7 +36,7 @@
 							<a href="${shoppingCartUrl}" rel="nofollow">Seu carrinho (${shoppingCart.quantity})</a>
 						</li>
 						<li>
-							<a href="/pages/sobre-a-casa-do-codigo" rel="nofollow">Sobre nós</a>
+							<a href="/pages/sobre-a-casa-do-codigo" rel="nofollow">Sobre nÃ³s</a>
 						</li>
 						<li>
 							<a href="/pages/perguntas-frequentes" rel="nofollow">Perguntas Frequentes</a>
@@ -48,22 +53,32 @@
 				<a href="http://www.casadocodigo.com.br">Home</a>
 			</li>
 			<li class="category">
-				<a href="/collections/livros-de-agile">Agile</a>
+				<a href="/collections/livros-de-agile">
+					<fmt:message key="navigation.category.agile" />
+				</a>
 			</li>
 			<li class="category">
-				<a href="/collections/livros-de-front-end">Front End</a>
+				<a href="/collections/livros-de-front-end">
+					<fmt:message key="navigation.category.front" />
+				</a>
 			</li>
 			<li class="category">
-				<a href="/collections/livros-de-games">Games</a>
+				<a href="/collections/livros-de-games">
+				<fmt:message key="navigation.category.games" />
+				</a>
 			</li>
 			<li class="category">
 				<a href="/collections/livros-de-java">Java</a>
 			</li>
 			<li class="category">
-				<a href="/collections/livros-de-mobile">Mobile</a>
+				<a href="/collections/livros-de-mobile">
+					<fmt:message key="navigation.category.mobile" />
+				</a>
 			</li>
 			<li class="category">
-				<a href="/collections/livros-desenvolvimento-web">Web</a>
+				<a href="/collections/livros-desenvolvimento-web">
+					<fmt:message key="navigation.category.web" />
+				</a>
 			</li>
 			<li class="category">
 				<a href="/collections/outros">Outros</a>
@@ -143,7 +158,7 @@
 			<section class="data product-detail">
 				<h2 class="section-title">Dados do livro:</h2>
 				<p>
-					Número de paginas: <span itemprop="numberOfPages">${product.numberOfPages}</span>
+					NÃºmero de paginas: <span itemprop="numberOfPages">${product.numberOfPages}</span>
 				</p>
 
 				<p></p>
@@ -160,7 +175,7 @@
 
 			<div id="collections-footer">
 				<!-- cdc-footer -->
-				<p class="footer-title">Coleções de Programação</p>
+				<p class="footer-title">ColeÃ§Ãµes de ProgramaÃ§Ã£o</p>
 				<ul class="footer-text-links">
 					<li>
 						<a href="/collections/livros-de-java">Java</a>
@@ -193,19 +208,19 @@
 			
 			<div id="social-footer">
 				<!-- books-footer -->
-				<p class="footer-title">Links da Casa do Código</p>
+				<p class="footer-title">Links da Casa do CÃ³digo</p>
 				<ul class="footer-text-links">
 					<li>
 						<a href="http://livros.casadocodigo.com.br" rel="nofollow">Meus E-books</a>
 					</li>
 					<li>
-						<a href="/pages/sobre-a-casa-do-codigo">Sobre a Casa do Código</a>
+						<a href="/pages/sobre-a-casa-do-codigo">Sobre a Casa do CÃ³digo</a>
 					</li>
 					<li>
 						<a href="/pages/perguntas-frequentes">Perguntas Frequentes</a>
 					</li>
 					<li>
-						<a href="https://www.caelum.com.br">Caelum - Ensino e Inovação</a>
+						<a href="https://www.caelum.com.br">Caelum - Ensino e InovaÃ§Ã£o</a>
 					</li>
 					<li>
 						<a href="http://www.codecrushing.com/" rel="nofollow">Code Crushing</a>
@@ -224,7 +239,7 @@
 			
 			<div id="newsletter-footer">
 				<!-- social-footer -->
-				<p class="footer-title">Receba as Novidades e Lançamentos</p>
+				<p class="footer-title">Receba as Novidades e LanÃ§amentos</p>
 				<div id="form-newsletter">
 					<form action="https://docs.google.com/spreadsheet/formResponse?formkey=dFhxZ2tDalFiclU4T2FLZVY4UXVUc2c6MQ&embedded=true&ifq"
 						method="POST" id="ss-form" class="form-newsletter">
@@ -242,7 +257,7 @@
 					
 					<ul>
 						<li class="ie8">
-							<a href="https://docs.google.com/spreadsheet/viewform?formkey=dFhxZ2tDalFiclU4T2FLZVY4UXVUc2c6MQ&ifq" rel="nofollow">Receba as Novidades e Lançamentos</a>
+							<a href="https://docs.google.com/spreadsheet/viewform?formkey=dFhxZ2tDalFiclU4T2FLZVY4UXVUc2c6MQ&ifq" rel="nofollow">Receba as Novidades e LanÃ§amentos</a>
 						</li>
 					</ul>
 				</div>
